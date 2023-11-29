@@ -1,0 +1,24 @@
+<div class="container">
+<mat-table [dataSource]="spendings" aria-label="Lista de gastos do mês atual">
+  <!-- Name Column -->
+  <ng-container matColumnDef="product">
+    <mat-header-cell *matHeaderCellDef>Produto</mat-header-cell>
+    <mat-cell *matCellDef="let spendings">{{ spendings.product }}</mat-cell>
+  </ng-container>
+
+  <!-- Category Column -->
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef>Categoria</mat-header-cell>
+    <mat-cell *matCellDef="let spendings">{{ spendings.category }}</mat-cell>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="value">
+    <mat-header-cell *matHeaderCellDef>Valor</mat-header-cell>
+    <mat-cell *matCellDef="let spendings">R$ {{ spendings.value }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+</div>
